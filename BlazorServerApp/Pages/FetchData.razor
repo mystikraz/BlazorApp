@@ -1,7 +1,8 @@
 ﻿@page "/fetchdata"
+@inherits FetchDataBase
 
 @using BlazorServerApp.Data
-@inject WeatherForecastService ForecastService
+@*@inject WeatherForecastService ForecastService*@
 
 <h1>Weather forecast</h1>
 
@@ -36,11 +37,11 @@ else
     </table>
 }
 
-@code {
-    private WeatherForecast[] forecasts;
+@*@code {
+        private WeatherForecast[] forecasts;
 
-    protected override async Task OnInitializedAsync()
-    {
-        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
-    }
-}
+        protected override async Task OnInitializedAsync()
+        {
+            forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+        }
+    }*@
