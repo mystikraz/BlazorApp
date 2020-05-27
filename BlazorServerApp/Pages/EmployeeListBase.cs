@@ -11,14 +11,15 @@ namespace BlazorServerApp.Pages
     public class EmployeeListBase:ComponentBase
     {
         public IEnumerable<Employee> Employees { get; set; }
-        protected override Task OnInitializedAsync()
+        protected override async Task OnInitializedAsync()
         {
-            LoadEmployees();
-            return base.OnInitializedAsync();
+            await Task.Run(LoadEmployees);
+            //return base.OnInitializedAsync();
         }
 
         private void LoadEmployees()
         {
+            System.Threading.Thread.Sleep(3000);
             Employee employee1 = new Employee
             {
                 EmployeeId = 1,
