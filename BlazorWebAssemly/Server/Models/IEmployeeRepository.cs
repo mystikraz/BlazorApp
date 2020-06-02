@@ -1,4 +1,5 @@
 ﻿using BlazorApp.Models;
+using BlazorApp.Models.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ namespace BlazorWebAssemly.Server.Models
 {
     public interface IEmployeeRepository
     {
+        Task<IEnumerable<Employee>> Search(string name,Gender? gender);
         Task<IEnumerable<Employee>> GetEmployees();
         Task<Employee> GetEmployee(int employeeId);
         Task<Employee> GetEmployeeByEmail(string email);

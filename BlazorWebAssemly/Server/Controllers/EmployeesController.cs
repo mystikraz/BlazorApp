@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BlazorApp.Models;
+using BlazorApp.Models.Enum;
 using BlazorWebAssemly.Server.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -19,8 +20,25 @@ namespace BlazorWebAssemly.Server.Controllers
         {
             _employeeRepository = employeeRepository;
         }
+        [HttpGet("{Search}")]
+        public async Task<ActionResult<Employee>> Search(string name,Gender? gender)
+        {
+            try
+            {
+               var result=await _employeeRepository.Search(name,gender);
+                if (result.Any())
+                {
+                    return Ok(result);
+                }
+                return NotFound();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.ToString());
+            }
+        }
         [HttpGet]
-        public async Task<ActionResult<Employee>> GetEmployees()
+        public async Task<ActionResult> GetEmployees()
         {
             try
             {
