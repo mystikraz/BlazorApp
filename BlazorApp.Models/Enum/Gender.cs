@@ -6,6 +6,6 @@ namespace BlazorApp.Models.Enum
 {
     public enum Gender
     {
-        male,Female,Other
+        Male,Female,Other
     }
 }

@@ -23,23 +23,25 @@ namespace BlazorServerApp.Pages
             Employee employee1 = new Employee
             {
                 EmployeeId = 1,
-                Firstname = "Raj",
-                Lastname = "Tandukar",
+                FirstName = "Raj",
+                LastName = "Tandukar",
                 Email = "test@test.com",
                 DateOfBirth = new DateTime(1980, 10, 5),
-                Department = new Department { DepartmentId = 1, DepartmentName = "Account" },
-                Gender = Gender.male,
+                //Department = new Department { DepartmentId = 1, DepartmentName = "Account" },
+                DepartmentId=1,
+                Gender = Gender.Male,
                 PhotoPath = "images/riddhi.jpg"
             };
             Employee employee2 = new Employee
             {
                 EmployeeId = 1,
-                Firstname = "Jar",
-                Lastname = "Rakundel",
+                FirstName = "Jar",
+                LastName = "Rakundel",
                 Email = "test@test.com",
                 DateOfBirth = new DateTime(1980, 10, 5),
-                Department = new Department { DepartmentId = 1, DepartmentName = "Account" },
-                Gender = Gender.male,
+                //Department = new Department { DepartmentId = 1, DepartmentName = "Account" },
+                DepartmentId=2,
+                Gender = Gender.Male,
                 PhotoPath = "images/riddhi.jpg"
             };
             Employees = new List<Employee> { employee1,employee2 };

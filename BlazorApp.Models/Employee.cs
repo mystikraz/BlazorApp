@@ -1,6 +1,7 @@
 ﻿using BlazorApp.Models.Enum;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace BlazorApp.Models
@@ -8,12 +9,14 @@ namespace BlazorApp.Models
    public class Employee
     {
         public int EmployeeId { get; set; }
-        public string Firstname { get; set; }
-        public string Lastname { get; set; }
+        [Required]
+        [MinLength(2)]
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string Email { get; set; }
         public DateTime DateOfBirth { get; set; }
         public Gender Gender { get; set; }
-        public Department Department { get; set; }
+        public int DepartmentId { get; set; }
         public string PhotoPath { get; set; }
     }
 }
