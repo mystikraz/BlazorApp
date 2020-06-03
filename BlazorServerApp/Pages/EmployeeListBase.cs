@@ -1,5 +1,6 @@
 ﻿using BlazorApp.Models;
 using BlazorApp.Models.Enum;
+using BlazorServerApp.Services;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
@@ -10,10 +11,13 @@ namespace BlazorServerApp.Pages
 {
     public class EmployeeListBase:ComponentBase
     {
+        [Inject]
+        public IEmployeeService EmployeeService { get; set; }
         public IEnumerable<Employee> Employees { get; set; }
         protected override async Task OnInitializedAsync()
         {
-            await Task.Run(LoadEmployees);
+            Employees=(await EmployeeService.GetEmployees()).ToList();
+            //await Task.Run(LoadEmployees);
             //return base.OnInitializedAsync();
         }
 
