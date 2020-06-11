@@ -1,5 +1,6 @@
 ﻿<div class="card m-3" style="min-width:18rem;max-width:30.5%">
     <div class="card-header">
+        <input type="checkbox" @onchange="CheckboxChanged" value="" />
         <h3>@Employee.FirstName @Employee.LastName</h3>
     </div>
     <img class="card-img-top imageThumbnail" src="@Employee.PhotoPath" alt="Alternate Text" />

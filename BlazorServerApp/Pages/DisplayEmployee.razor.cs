@@ -13,5 +13,11 @@ namespace BlazorServerApp.Pages
         public Employee Employee { get; set; }
         [Parameter]
         public bool ShowFooter { get; set; }
+        [Parameter]
+        public EventCallback<bool> OnEmployeeSelection { get; set; }
+        protected async Task CheckboxChanged( ChangeEventArgs e)
+        {
+            await OnEmployeeSelection.InvokeAsync((bool)e.Value);
+        }
     }
 }

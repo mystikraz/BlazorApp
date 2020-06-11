@@ -21,6 +21,18 @@ namespace BlazorServerApp.Pages
             //await Task.Run(LoadEmployees);
             //return base.OnInitializedAsync();
         }
+        protected int SelectedEmployeesCount { get; set; }
+        protected void EmployeeSelectionChanged(bool isSelected)
+        {
+            if (isSelected)
+            {
+                SelectedEmployeesCount++;
+            }
+            else
+            {
+                SelectedEmployeesCount--;
+            }
+        }
 
         private void LoadEmployees()
         {
